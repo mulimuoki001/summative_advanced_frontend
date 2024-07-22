@@ -306,3 +306,150 @@ areaChart.render();
     `;
     notificationDropdown.appendChild(newNotification);
   }
+
+
+
+    const events = [
+    { id: 1, title: 'Event Title 1', date: 'August 15, 2024', description: 'Details about Event 1', location: 'Location 1' },
+    { id: 2, title: 'Event Title 2', date: 'August 22, 2024', description: 'Details about Event 2', location: 'Location 2' }
+  ];
+
+  function renderEvents() {
+    const eventsTableBody = document.getElementById('events-table-body');
+    eventsTableBody.innerHTML = ''; // Clear any existing content
+
+    events.forEach(event => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${event.title}</td>
+        <td>${event.date}</td>
+        <td>${event.description}</td>
+        <td>${event.location}</td>
+        <td>
+          <button onclick="viewEvent(${event.id})">View</button>
+          <button onclick="updateEvent(${event.id})">Update</button>
+          <button onclick="deleteEvent(${event.id})">Delete</button>
+        </td>
+      `;
+      eventsTableBody.appendChild(row);
+    });
+  }
+
+  function viewEvent(id) {
+    // Implement view event functionality
+    alert('Viewing event with ID: ' + id);
+  }
+
+  function updateEvent(id) {
+    // Implement update event functionality
+    alert('Updating event with ID: ' + id);
+  }
+
+  function deleteEvent(id) {
+    // Implement delete event functionality
+    if (confirm('Are you sure you want to delete this event?')) {
+      const index = events.findIndex(event => event.id === id);
+      if (index > -1) {
+        events.splice(index, 1); // Remove event from array
+        renderEvents(); // Re-render events list
+      }
+    }
+  }
+
+  // Initial render
+  renderEvents();
+  let editIndex = -1; // Track which event is being edited
+
+// Show the event form
+function showEventForm() {
+    document.getElementById('event-form-container').classList.remove('hidden');
+    document.getElementById('form-title').textContent = 'Add New Event';
+    document.getElementById('event-form').reset();
+    editIndex = -1; // Reset edit index
+    hideEventDetails(); // Hide event details when showing form
+}
+
+// Hide the event form
+function hideEventForm() {
+    document.getElementById('event-form-container').classList.add('hidden');
+}
+
+// Show event details
+function showEventDetails(row) {
+    const cells = row.cells;
+    document.getElementById('event-detail-title').textContent = cells[0].textContent;
+    document.getElementById('event-detail-date').textContent = cells[1].textContent;
+    document.getElementById('event-detail-description').textContent = cells[2].textContent;
+    document.getElementById('event-detail-location').textContent = cells[3].textContent;
+    document.getElementById('event-details-container').classList.remove('hidden');
+}
+
+// Hide event details
+function hideEventDetails() {
+    document.getElementById('event-details-container').classList.add('hidden');
+}
+
+// Add or update event
+function addEvent(event) {
+    event.preventDefault(); // Prevent form submission
+
+    const title = document.getElementById('event-title').value;
+    const date = document.getElementById('event-date').value;
+    const description = document.getElementById('event-description').value;
+    const location = document.getElementById('event-location').value;
+
+    const tbody = document.getElementById('event-table-body');
+    if (editIndex === -1) {
+        // Add new event
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+            <td>${title}</td>
+            <td>${date}</td>
+            <td>${description}</td>
+            <td>${location}</td>
+            <td>
+                <button onclick="editEvent(this)">Edit</button>
+                <button onclick="deleteRow(this)">X</button>
+                <button onclick="showEventDetails(this.parentElement.parentElement)">View</button>
+            </td>
+        `;
+        tbody.appendChild(newRow);
+    } else {
+        // Update existing event
+        const row = tbody.rows[editIndex];
+        row.cells[0].textContent = title;
+        row.cells[1].textContent = date;
+        row.cells[2].textContent = description;
+        row.cells[3].textContent = location;
+        editIndex = -1;
+    }
+
+    document.getElementById('event-form').reset();
+    hideEventForm();
+}
+
+// Edit event
+function editEvent(button) {
+    const row = button.parentElement.parentElement;
+    const cells = row.cells;
+    document.getElementById('event-title').value = cells[0].textContent;
+    document.getElementById('event-date').value = cells[1].textContent;
+    document.getElementById('event-description').value = cells[2].textContent;
+    document.getElementById('event-location').value = cells[3].textContent;
+
+    document.getElementById('form-title').textContent = 'Edit Event';
+    document.getElementById('event-form').scrollIntoView();
+
+    editIndex = row.rowIndex - 1;
+    showEventForm();
+}
+
+// Delete event row
+function deleteRow(button) {
+    const row = button.parentElement.parentElement;
+    row.remove();
+    hideEventDetails(); // Hide event details when row is deleted
+}
+
+document.getElementById('event-form').addEventListener('submit', addEvent);
+
