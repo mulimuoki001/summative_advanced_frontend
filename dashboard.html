@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>University Residence Dashboard</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
   <div class="grid-container">
 
@@ -26,13 +29,13 @@
       </div>
     </header>
     <!-- End Header -->
-   <!-- Profile Dropdown -->
-   <div id="profile-dropdown">
-    <img src="profile-picture.jpg" alt="Profile Picture">
-    <p>John Doe</p>
-    <a href="#"><span class="material-icons-outlined">settings</span> Settings</a>
-    <a href="#"><span class="material-icons-outlined">logout</span> Logout</a>
-  </div>
+    <!-- Profile Dropdown -->
+    <div id="profile-dropdown">
+      <img src="profile-picture.jpg" alt="Profile Picture">
+      <p>John Doe</p>
+      <a href="#"><span class="material-icons-outlined">settings</span> Settings</a>
+      <a href="#"><span class="material-icons-outlined">logout</span> Logout</a>
+    </div>
     <!-- Notification Dropdown -->
     <div id="notification-dropdown">
       <div class="notification">
@@ -65,7 +68,7 @@
         <div class="sidebar-brand">
           <span class="material-icons-outlined">apartment</span> RESIDENCE
         </div>
-        <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+        <span class="material-icons-outlined closeIcon" onclick="closeSidebar()">close</span>
       </div>
 
       <ul class="sidebar-list">
@@ -171,4 +174,5 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
   <script src="js/scripts.js"></script>
 </body>
+
 </html>
