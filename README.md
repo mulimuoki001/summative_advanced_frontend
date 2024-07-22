@@ -1,33 +1,33 @@
-# summative_advanced_frontend
+# University Residence Management System Dashboard
 
-# Responsive Sales Dashboard
+## Project Overview
 
-This is a responsive sales dashboard built using **HTML 5**, **CSS 3**, and **JavaScript**. Charts were built using **ApexCharts 3**.
+Welcome to the final summative project of the Advanced Front-End module. This group project challenges you to showcase your advanced front-end development skills by building a dynamic and user-friendly dashboard for a university residence management system.
 
-## Table of Contents
+## Project Description
 
-- [Prerequisites](#prerequisites)
-- [Running the application](#run-the-application)
-- [Copyright and License](#copyright-and-license)
+Develop a responsive and interactive dashboard for university residence staff using HTML, CSS, JavaScript, and a chosen framework (Bootstrap or Tailwind). The dashboard should provide the following functionalities:
 
-### Prerequisites
+### Functionalities
 
-Install the following prerequisites:
+1. **Data Visualization**
+   - Utilize charts and graphs (e.g., bar charts, pie charts) to represent residence data such as occupancy rates, room types, and maintenance requests.
 
-- [Visual Studio Code](https://code.visualstudio.com/download) with the **Live Server** extension.
+2. **Room Management**
+   - Display a list of rooms with details including resident information, room status (occupied, vacant, under maintenance), and basic amenities.
+   - Include functionalities for filtering and sorting rooms.
 
-[Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) allows us to launch a local development server that enables a live reload of our project.
+3. **Maintenance Requests**
+   - Provide a section to view and manage maintenance requests submitted by residents.
+   - Include functionalities to filter by room, status (pending, ongoing, completed), and add notes.
 
-### Run the application
+4. **Alerts and Notifications**
+   - Display important alerts and notifications for staff, such as upcoming room inspections, maintenance deadlines, or urgent resident requests.
 
-To run the application, start the **Live Server** by clicking **Go Live** in the bottom right corner of the status bar in Visual Studio Code. This action will load the website in your default web browser.
+5. **Theme Switcher**
+   - Implement a feature that allows staff to switch between different themes (light/dark or custom colors) using browser storage (cookies or local storage).
 
-![plot](https://github.com/BobsProgrammingAcademy/responsive-sales-dashboard/blob/master/images/vscode.png?raw=true)
+## Technical Considerations
 
-### View the application
-
-Once the **Live Server** is up and running, go to http://127.0.0.1:5500/index.html to view the application.
-
-### Copyright and License
-
-Copyright © 2022 Bob's Programming Academy. Code released under the MIT license.
+- **HTML**
+  - Use Semantic HTML for improved accessibility and SEO.
