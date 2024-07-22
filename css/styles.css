@@ -7,16 +7,18 @@
   --notifification-text-color: black;
   --profile-dropdown-bg-color: white;
   --profile-dropdown-text-color: black;
+  --card-bg-color: rgb(245, 245, 245);
 }
 
 .dark-theme {
-  --main-bg-color: rgb(138, 137, 137);
+  --card-bg-color: grey;
+  --main-bg-color: black;
   --main-text-color: white;
-  --sidebar-bg-color: rgb(138, 137, 137);
+  --sidebar-bg-color: black;
   --sidebar-text-color: white;
-  --notifification-bg-color: rgb(138, 137, 137);
+  --notifification-bg-color: black;
   --notifification-text-color: white;
-  --profile-dropdown-bg-color: rgb(138, 137, 137);
+  --profile-dropdown-bg-color: black;
   --profile-dropdown-text-color: white;
 }
 
@@ -241,23 +243,24 @@ body {
   justify-content: space-around;
   padding: 25px;
   border-radius: 5px;
+
   color: var(--body-text-color);
 }
 
 .card:first-child {
-  background-color: var(--main-bg-color);
+  background-color: var(--card-bg-color);
 }
 
 .card:nth-child(2) {
-  background-color: var(--main-bg-color);
+  background-color: var(--card-bg-color);
 }
 
 .card:nth-child(3) {
-  background-color: var(--main-bg-color);
+  background-color: var(--card-bg-color);
 }
 
 .card:nth-child(4) {
-  background-color: var(--main-bg-color);
+  background-color: var(--card-bg-color);
 }
 
 .card-inner {
@@ -284,7 +287,7 @@ body {
   box-sizing: border-box;
   -webkit-column-break-inside: avoid;
   border-radius: 5px;
-  box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 7px -4px rgba(131, 124, 124, 0.2);
 }
 
 .chart-title {
@@ -295,15 +298,12 @@ body {
 }
 
 .switch {
-  margin-left: 25px;
   position: relative;
   display: inline-block;
   width: 50px;
   height: 24px;
 }
-.slider-subtitle {
-  margin-left: 25px;
-}
+
 .slider {
   position: absolute;
   cursor: pointer;
@@ -311,7 +311,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: black;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -329,7 +329,7 @@ body {
 }
 
 input:checked + .slider {
-  background-color: #1c252c;
+  background-color: rgb(122, 112, 112);
 }
 
 input:checked + .slider:before {
