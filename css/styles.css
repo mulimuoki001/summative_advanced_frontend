@@ -1,5 +1,5 @@
 :root {
-  --main-bg-color: white;
+  --main-bg-color: #f0f2f5;
   --main-text-color: black;
   --sidebar-bg-color: white;
   --sidebar-text-color: black;
@@ -7,11 +7,11 @@
   --notifification-text-color: black;
   --profile-dropdown-bg-color: white;
   --profile-dropdown-text-color: black;
-  --card-bg-color: rgb(245, 245, 245);
+  --card-bg-color: white;
 }
 
 .dark-theme {
-  --card-bg-color: grey;
+  --card-bg-color: BLACK;
   --main-bg-color: black;
   --main-text-color: white;
   --sidebar-bg-color: black;
@@ -20,6 +20,7 @@
   --notifification-text-color: white;
   --profile-dropdown-bg-color: black;
   --profile-dropdown-text-color: white;
+  --box-shadow: 0 6px 7px -4px white;
 }
 
 body {
@@ -249,18 +250,22 @@ body {
 
 .card:first-child {
   background-color: var(--card-bg-color);
+  box-shadow: var(--box-shadow);
 }
 
 .card:nth-child(2) {
   background-color: var(--card-bg-color);
+  box-shadow: var(--box-shadow);
 }
 
 .card:nth-child(3) {
   background-color: var(--card-bg-color);
+  box-shadow: var(--box-shadow);
 }
 
 .card:nth-child(4) {
   background-color: var(--card-bg-color);
+  box-shadow: var(--box-shadow);
 }
 
 .card-inner {
@@ -281,7 +286,7 @@ body {
 }
 
 .charts-card {
-  background-color: var(--main-bg-color);
+  background-color: var(--card-bg-color);
   margin-bottom: 20px;
   padding: 25px;
   box-sizing: border-box;
