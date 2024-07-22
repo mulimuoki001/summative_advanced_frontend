@@ -306,3 +306,17 @@ areaChart.render();
     `;
     notificationDropdown.appendChild(newNotification);
   }
+  // Theme switcher
+  
+
+  const themeSwitch = document.getElementById('themeSwitch');
+
+themeSwitch.addEventListener('change', function() {
+    if(this.checked) {
+        document.body.classList.add('dark-theme');
+        document.querySelector('.sidebar').classList.add('dark-theme');
+    } else {
+        document.body.classList.remove('dark-theme');
+        document.querySelector('.sidebar').classList.remove('dark-theme');
+    }
+});
