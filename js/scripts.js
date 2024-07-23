@@ -455,21 +455,6 @@ function deleteRow(button) {
 
 document.getElementById('event-form').addEventListener('submit', addEvent);
 
-  // Theme switcher
-
-const profilePictureInput = document.getElementById('profilePicture');
-const profileImage = document.getElementById('profileImage');
-
-profilePictureInput.addEventListener('change', function() {
-    const file = this.files[0];
-    const reader = new FileReader();
-
-    reader.onload = function(e) {
-        profileImage.src = e.target.result;
-    }
-
-    reader.readAsDataURL(file);
-});
 
 
 

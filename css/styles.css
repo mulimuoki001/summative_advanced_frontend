@@ -467,8 +467,8 @@ td {
 }
 
 .event-table th {
-  background-color: #f4f4f4;
-  color: #333;
+  background-color: var(--card-bg-color);
+  color: var(--main-text-color);
   font-weight: bold;
 }
 
@@ -589,17 +589,17 @@ button.delete-btn:hover {
 }
 
 .summary-card {
-  background-color: #fff;
+  background-color: var(--card-bg-color);
   padding: 20px;
   border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow);
   text-align: center;
 }
 
 .summary-card h3 {
   margin: 0;
   font-size: 18px;
-  color: #333;
+  color: var(--main-text-color);
 }
 
 .summary-card p {
@@ -623,8 +623,8 @@ button.delete-btn:hover {
 }
 
 .reports-table th {
-  background-color: #f4f4f4;
-  color: #333;
+  background-color: var(--card-bg-color);
+  color: var(--main-text-color);
   font-weight: bold;
 }
 
