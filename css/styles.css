@@ -423,6 +423,7 @@ button:hover {
     grid-template-columns: 1fr;
     gap: 10px;
     margin-bottom: 0;
+    
   }
 
   .charts {
@@ -438,3 +439,11 @@ button:hover {
     display: none;
   }
 }
+
+@media screen and (max-width: 576px) {
+  .sidebar-title > span {
+    position: relative;
+    left: 25px; /* Move the icon up */
+  }
+}
+
