@@ -309,6 +309,7 @@ areaChart.render();
 
 
 
+
     const events = [
     { id: 1, title: 'Event Title 1', date: 'August 15, 2024', description: 'Details about Event 1', location: 'Location 1' },
     { id: 2, title: 'Event Title 2', date: 'August 22, 2024', description: 'Details about Event 2', location: 'Location 2' }
@@ -452,4 +453,42 @@ function deleteRow(button) {
 }
 
 document.getElementById('event-form').addEventListener('submit', addEvent);
+
+  // Theme switcher
+  
+
+  const themeSwitch = document.getElementById('themeSwitch');
+
+// Get the current theme from local storage
+const currentTheme = localStorage.getItem('theme');
+
+// Set the initial theme based on the stored value or default to light theme
+if (currentTheme === 'dark') {
+  themeSwitch.checked = true;
+  document.body.classList.add('dark-theme');
+}
+
+// Add event listener to the switch slider
+themeSwitch.addEventListener('change', function() {
+  const theme = this.checked ? 'dark' : 'light';
+
+  // Store the selected theme in local storage
+  localStorage.setItem('theme', theme);
+
+  // Apply the theme to all pages
+  document.body.classList.toggle('dark-theme', theme === 'dark');
+});
+const profilePictureInput = document.getElementById('profilePicture');
+const profileImage = document.getElementById('profileImage');
+
+profilePictureInput.addEventListener('change', function() {
+    const file = this.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+        profileImage.src = e.target.result;
+    }
+
+    reader.readAsDataURL(file);
+});
 

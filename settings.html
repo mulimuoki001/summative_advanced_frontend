@@ -1,125 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>University Residence Dashboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>University Residence Dashboard</title>
 
-    <!-- Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/styles.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-    <div class="grid-container">
-   <!-- Header -->
-   <header class="header">
-    <div class="menu-icon" onclick="openSidebar()">
-      <span class="material-icons-outlined">menu</span>
+  <div class="grid-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="menu-icon" onclick="openSidebar()">
+        <span class="material-icons-outlined">menu</span>
+      </div>
+      <div class="header-left">
+        <span class="material-icons-outlined" onclick="toggleSearch()">search</span>
+        <input type="text" id="search-bar" placeholder="Search..." onkeyup="searchContent()">
+      </div>
+      <div class="header-right">
+        <span class="material-icons-outlined" onclick="toggleNotifications()">notifications</span>
+        <span class="material-icons-outlined" onclick="toggleProfile()">account_circle</span>
+        <label class="switch">
+
+          <input type="checkbox" id="themeSwitch">
+          <span class="slider round"></span>
+        </label>
+      </div>
+    </header>
+    <!-- End Header -->
+    <!-- Profile Dropdown -->
+    <div id="profile-dropdown">
+      <img id="profileImage" src="profile-picture.jpg" alt="Profile Picture">
+      <p>John Doe</p>
+      <a href="settings.html"><span class="material-icons-outlined">settings</span> Settings</a>
+      <a href="#"><span class="material-icons-outlined">logout</span> Logout</a>
     </div>
-    <div class="header-left">
-      <span class="material-icons-outlined" onclick="toggleSearch()">search</span>
-      <input type="text" id="search-bar" placeholder="Search..." onkeyup="searchContent()">
+    <!-- Notification Dropdown -->
+    <div id="notification-dropdown">
+      <div class="notification">
+        <h2>Notification</h2>
+        <p class="notification-title">Update Available</p>
+        <p class="notification-details">System Admin: New update released.</p>
+      </div>
+      <div class="notification">
+        <p class="notification-title">Room Maintenance</p>
+        <p class="notification-details">Maintenance Team: Scheduled maintenance for room 101.</p>
+      </div>
+      <div class="notification">
+        <p class="notification-title">Room Maintenance</p>
+        <p class="notification-details">Maintenance Team: Scheduled maintenance for room 101.</p>
+      </div>
+      <!-- More notifications can be added here -->
     </div>
-    <div class="header-right">
-      <span class="material-icons-outlined" onclick="toggleNotifications()">notifications</span>
-      <span class="material-icons-outlined" onclick="toggleProfile()">account_circle</span>
+
+    <!-- Profile Dropdown -->
+    <div id="profile-dropdown">
+      <img src="profile-picture.jpg" alt="Profile Picture">
+      <p>John Doe</p>
+      <a href="settings.html"><span class="material-icons-outlined">settings</span> Settings</a>
+      <a href="#"><span class="material-icons-outlined">logout</span> Logout</a>
     </div>
-  </header>
-  <!-- End Header -->
- <!-- Profile Dropdown -->
- <div id="profile-dropdown">
-  <img src="profile-picture.jpg" alt="Profile Picture">
-  <p>John Doe</p>
-  <a href="settings.html"><span class="material-icons-outlined">settings</span> Settings</a>
-  <a href="#"><span class="material-icons-outlined">logout</span> Logout</a>
-</div>
-  <!-- Notification Dropdown -->
-  <div id="notification-dropdown">
-    <div class="notification">
-      <h2>Notification</h2>
-      <p class="notification-title">Update Available</p>
-      <p class="notification-details">System Admin: New update released.</p>
-    </div>
-    <div class="notification">
-      <p class="notification-title">Room Maintenance</p>
-      <p class="notification-details">Maintenance Team: Scheduled maintenance for room 101.</p>
-    </div>
-    <div class="notification">
-      <p class="notification-title">Room Maintenance</p>
-      <p class="notification-details">Maintenance Team: Scheduled maintenance for room 101.</p>
-    </div>
-    <!-- More notifications can be added here -->
+    <!-- Sidebar -->
+    <aside id="sidebar">
+      <div class="sidebar-title">
+        <div class="sidebar-brand">
+          <span class="material-icons-outlined">apartment</span> RESIDENCE
+        </div>
+        <span class="material-icons-outlined closeIcon" onclick="closeSidebar()">close</span>
+      </div>
+
+      <ul class="sidebar-list">
+        <li class="sidebar-list-item">
+          <a href="dashboard.html" target="_blank">
+            <span class="material-icons-outlined">dashboard</span> Dashboard
+          </a>
+        </li>
+        <li class="sidebar-list-item">
+          <a href="rooms.html">
+            <span class="material-icons-outlined">meeting_room</span> Rooms
+          </a>
+        </li>
+        <li class="sidebar-list-item">
+          <a href="residents.html">
+            <span class="material-icons-outlined">person</span> Residents
+          </a>
+        </li>
+        <li class="sidebar-list-item">
+          <a href="maintenance.html">
+            <span class="material-icons-outlined">build</span> Maintenance
+          </a>
+        </li>
+        <li class="sidebar-list-item">
+          <a href="event.html">
+            <span class="material-icons-outlined">event</span> Events
+          </a>
+        </li>
+        <li class="sidebar-list-item">
+          <a href="report.html">
+            <span class="material-icons-outlined">poll</span> Reports
+          </a>
+        </li>
+        <li class="sidebar-list-item">
+          <a href="settings.html">
+            <span class="material-icons-outlined">settings</span> Settings
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-container">
+      <h1>Personal Settings</h1>
+      <form id="settingsForm">
+        <label for="profilePicture">Profile Picture:</label>
+
+        <input type="file" id="profilePicture" name="profilePicture">
+
+
+        <label for="name">First Name:</label>
+        <input type="text" id="name" name="name" placeholder="e.g Brian" required>
+        <label for="name">Second Name:</label>
+        <input type="text" id="name" name="name" placeholder="e.g Muli" required>
+        <label for="name">Last Name:</label>
+        <input type="text" id="name" name="name" placeholder="e.g Muoki">
+        <label for="name">Birth Date</label>
+        <input type="date" id="name" name="name" placeholder="Enter your birth date">
+
+        <label style="margin-left: 5px; margin-top: 20px;font-size: 20px" for="name">Gender</label>
+
+        <div style="display: flex; margin-top: 5px">
+          <input type="radio" id="male" name="gender" required>
+          <label style="margin-left: 10px; margin-top: 10px" for="male">Male</label>
+
+        </div>
+        <div style="display: flex;margin-top: 10px">
+          <input type="radio" id="female" name="gender" required>
+          <label style="margin-left: 10px; margin-top: 10px" for="female">Female</label>
+
+        </div>
+        <div style="display: flex;margin-top: 10px;align-items: center">
+          <input type="radio" id="other" name="gender" required>
+          <label style="margin-left: 10px; margin-top: 10px" for="other">Other</label>
+
+        </div>
+
+
+      </form>
+      <h1>Payment Settings</h1>
+
+      <form id="settingsForm">
+        <label for="card-number">Card Number:</label>
+        <input type="text" id="card-number" name="card-number">
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" name="cvv">
+        <label for="expiration-date">Expiration Date:</label>
+        <input type="date" id="expiration-date" name="expiration-date">
+        <label style=" margin-top: 10px" for="cvv">Room Number:</label>
+        <select type="number" name="room-no">
+          <option value="100">100</option>
+          <option value="101">101</option>
+          <option value="100">102</option>
+          <option value="101">103</option>
+          <option value="100">104</option>
+          <option value="101">105</option>
+          <option value="100">106</option>
+          <option value="101">107</option>
+
+        </select>
+
+
+
+
+      </form>
+      <button type="submit">Save Settings</button>
+
+
+    </main>
   </div>
 
-  <!-- Profile Dropdown -->
-  <div id="profile-dropdown">
-    <img src="profile-picture.jpg" alt="Profile Picture">
-    <p>John Doe</p>
-    <a href="#"><span class="material-icons-outlined">settings</span> Settings</a>
-    <a href="#"><span class="material-icons-outlined">logout</span> Logout</a>
-  </div>
-        <!-- Sidebar -->
-        <aside id="sidebar">
-            <div class="sidebar-title">
-                <div class="sidebar-brand">
-                    <span class="material-icons-outlined">apartment</span> RESIDENCE
-                </div>
-                <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
-            </div>
+  <!-- Scripts -->
 
-            <ul class="sidebar-list">
-                <li class="sidebar-list-item">
-                  <a href="dashboard.html" target="_blank">
-                    <span class="material-icons-outlined">dashboard</span> Dashboard
-                  </a>
-                </li>
-                <li class="sidebar-list-item">
-                  <a href="rooms.html" target="_blank">
-                    <span class="material-icons-outlined">meeting_room</span> Rooms
-                  </a>
-                </li>
-                <li class="sidebar-list-item">
-                  <a href="residents.html" target="_blank">
-                    <span class="material-icons-outlined">person</span> Residents
-                  </a>
-                </li>
-                <li class="sidebar-list-item">
-                  <a href="maintenance.html" target="_blank">
-                    <span class="material-icons-outlined">build</span> Maintenance
-                  </a>
-                </li>
-                <li class="sidebar-list-item">
-                  <a href="event.html" target="_blank">
-                    <span class="material-icons-outlined">event</span> Events
-                  </a>
-                </li>
-                <li class="sidebar-list-item">
-                  <a href="report.html" target="_blank">
-                    <span class="material-icons-outlined">poll</span> Reports
-                  </a>
-                </li>
-                <li class="sidebar-list-item">
-                  <a href="settings.html" target="_blank">
-                    <span class="material-icons-outlined">settings</span> Settings
-                  </a>
-                </li>
-              </ul>
-        </aside>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
+  <script src="js/scripts.js"></script>
+</body>
 
-        <!-- Main Content -->
-        <main class="main-container">
-            <div class="main-title">
-                <h2>Settings</h2>
-            </div>
-            <div>
-                <h1>Type settings</h1>
-            </div>
-        </main>
-    </div>
-
-    <!-- Scripts -->
-    <script src="js/scripts.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script></body>
 </html>
