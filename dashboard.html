@@ -26,14 +26,20 @@
       <div class="header-right">
         <span class="material-icons-outlined" onclick="toggleNotifications()">notifications</span>
         <span class="material-icons-outlined" onclick="toggleProfile()">account_circle</span>
+        <label class="switch">
+
+          <input type="checkbox" id="themeSwitch">
+          <span class="slider round"></span>
+        </label>
       </div>
+
     </header>
     <!-- End Header -->
     <!-- Profile Dropdown -->
     <div id="profile-dropdown">
       <img src="profile-picture.jpg" alt="Profile Picture">
       <p>John Doe</p>
-      <a href="#"><span class="material-icons-outlined">settings</span> Settings</a>
+      <a href="settings.html"><span class="material-icons-outlined">settings</span> Settings</a>
       <a href="#"><span class="material-icons-outlined">logout</span> Logout</a>
     </div>
     <!-- Notification Dropdown -->
@@ -72,42 +78,43 @@
       </div>
 
       <ul class="sidebar-list">
+
         <li class="sidebar-list-item">
-          <a href="dashboard.html" target="_blank">
+          <a href="dashboard.html">
             <span class="material-icons-outlined">dashboard</span> Dashboard
           </a>
         </li>
         <li class="sidebar-list-item">
-          <a href="rooms.html" target="_blank">
+          <a href="rooms.html">
             <span class="material-icons-outlined">meeting_room</span> Rooms
           </a>
         </li>
         <li class="sidebar-list-item">
-          <a href="residents.html" target="_blank">
+          <a href="residents.html">
             <span class="material-icons-outlined">person</span> Residents
           </a>
         </li>
         <li class="sidebar-list-item">
-          <a href="maintenance.html" target="_blank">
+          <a href="maintenance.html">
             <span class="material-icons-outlined">engineering</span> Maintenance
           </a>
         </li>
         <li class="sidebar-list-item">
-          <a href="event.html" target="_blank">
+          <a href="event.html">
             <span class="material-icons-outlined">event</span> Events
           </a>
         </li>
         <li class="sidebar-list-item">
-          <a href="report.html" target="_blank">
+          <a href="report.html">
             <span class="material-icons-outlined">poll</span> Reports
           </a>
         </li>
         <li class="sidebar-list-item">
-          <a href="settings.html" target="_blank">
+          <a href="settings.html">
             <span class="material-icons-outlined">settings</span> Settings
           </a>
         </li>
-      </ul>
+
     </aside>
     <!-- End Sidebar -->
 
