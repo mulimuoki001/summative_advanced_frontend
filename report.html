@@ -14,6 +14,7 @@
 </head>
 
 <body>
+
   <div class="grid-container">
     <!-- Header -->
     <header class="header">
@@ -35,15 +36,17 @@
       </div>
     </header>
     <!-- End Header -->
+
     <!-- Profile Dropdown -->
-    <div id="profile-dropdown">
+    <div id="profile-dropdown" class="hidden">
       <img src="profile-picture.jpg" alt="Profile Picture">
       <p>John Doe</p>
       <a href="settings.html"><span class="material-icons-outlined">settings</span> Settings</a>
       <a href="#"><span class="material-icons-outlined">logout</span> Logout</a>
     </div>
+
     <!-- Notification Dropdown -->
-    <div id="notification-dropdown">
+    <div id="notification-dropdown" class="hidden">
       <div class="notification">
         <h2>Notification</h2>
         <p class="notification-title">Update Available</p>
@@ -53,12 +56,9 @@
         <p class="notification-title">Room Maintenance</p>
         <p class="notification-details">Maintenance Team: Scheduled maintenance for room 101.</p>
       </div>
-      <div class="notification">
-        <p class="notification-title">Room Maintenance</p>
-        <p class="notification-details">Maintenance Team: Scheduled maintenance for room 101.</p>
-      </div>
-      <!-- More notifications can be added here -->
     </div>
+
+
 
     <!-- Profile Dropdown -->
     <div id="profile-dropdown">
@@ -76,6 +76,7 @@
         </div>
         <span class="material-icons-outlined  closeIcon" onclick="closeSidebar()">close</span>
       </div>
+
 
       <ul class="sidebar-list">
         <li class="sidebar-list-item">
@@ -116,13 +117,72 @@
       </ul>
     </aside>
 
+
+
     <!-- Main Content -->
     <main class="main-container">
       <div class="main-title">
         <h2>REPORTS</h2>
+        <button class="add-report-btn" id="add-report-btn">Add Report</button>
       </div>
-      <div>
-        <h1>Add the content of reports</h1>
+
+      <!-- Reports Summary -->
+      <div class="reports-summary">
+        <div class="summary-card">
+          <h3>Total Reports</h3>
+          <p id="total-reports">50</p>
+        </div>
+        <div class="summary-card">
+          <h3>Reports This Month</h3>
+          <p id="reports-this-month">10</p>
+        </div>
+        <div class="summary-card">
+          <h3>Pending Reports</h3>
+          <p id="pending-reports">5</p>
+        </div>
+      </div>
+
+      <!-- Reports Table -->
+      <table class="reports-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="reports-table-body">
+          <!-- Rows will be added here dynamically -->
+        </tbody>
+      </table>
+
+      <!-- Add/Edit Report Form -->
+      <div id="report-form-container" class="hidden">
+        <h3 id="form-title">Add New Report</h3>
+        <form id="report-form">
+          <input type="hidden" id="report-id">
+          <label for="report-date">Date:</label>
+          <input type="date" id="report-date" name="date" required>
+
+          <label for="report-type">Type:</label>
+          <input type="text" id="report-type" name="type" required>
+
+          <label for="report-description">Description:</label>
+          <textarea id="report-description" name="description" required></textarea>
+
+          <label for="report-status">Status:</label>
+          <select id="report-status" name="status" required>
+            <option value="pending">Pending</option>
+            <option value="resolved">Resolved</option>
+            <option value="closed">Closed</option>
+          </select>
+
+          <button type="submit">Submit</button>
+          <button type="button" onclick="toggleReportForm()">Cancel</button>
+        </form>
       </div>
     </main>
   </div>
@@ -130,8 +190,11 @@
   <!-- Scripts -->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
+
   <script src="js/scripts.js"></script>
+
   <script src="js/theme.js"></script>
+
 </body>
 
 </html>
