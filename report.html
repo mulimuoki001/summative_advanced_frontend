@@ -14,6 +14,45 @@
 </head>
 
 <body>
+
+    <div class="grid-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="menu-icon" onclick="openSidebar()">
+                <span class="material-icons-outlined">menu</span>
+            </div>
+            <div class="header-left">
+                <span class="material-icons-outlined" onclick="toggleSearch()">search</span>
+                <input type="text" id="search-bar" placeholder="Search..." onkeyup="searchContent()">
+            </div>
+            <div class="header-right">
+                <span class="material-icons-outlined" onclick="toggleNotifications()">notifications</span>
+                <span class="material-icons-outlined" onclick="toggleProfile()">account_circle</span>
+            </div>
+        </header>
+        <!-- End Header -->
+
+        <!-- Profile Dropdown -->
+        <div id="profile-dropdown" class="hidden">
+            <img src="profile-picture.jpg" alt="Profile Picture">
+            <p>John Doe</p>
+            <a href="settings.html"><span class="material-icons-outlined">settings</span> Settings</a>
+            <a href="#"><span class="material-icons-outlined">logout</span> Logout</a>
+        </div>
+
+        <!-- Notification Dropdown -->
+        <div id="notification-dropdown" class="hidden">
+            <div class="notification">
+                <h2>Notification</h2>
+                <p class="notification-title">Update Available</p>
+                <p class="notification-details">System Admin: New update released.</p>
+            </div>
+            <div class="notification">
+                <p class="notification-title">Room Maintenance</p>
+                <p class="notification-details">Maintenance Team: Scheduled maintenance for room 101.</p>
+            </div>
+        </div>
+
   <div class="grid-container">
     <!-- Header -->
     <header class="header">
@@ -77,6 +116,7 @@
         <span class="material-icons-outlined  closeIcon" onclick="closeSidebar()">close</span>
       </div>
 
+
       <ul class="sidebar-list">
         <li class="sidebar-list-item">
           <a href="dashboard.html">
@@ -116,21 +156,202 @@
       </ul>
     </aside>
 
-    <!-- Main Content -->
-    <main class="main-container">
-      <div class="main-title">
-        <h2>REPORTS</h2>
-      </div>
-      <div>
-        <h1>Add the content of reports</h1>
-      </div>
-    </main>
-  </div>
 
-  <!-- Scripts -->
+            <ul class="sidebar-list">
+                <li class="sidebar-list-item"><a href="dashboard.html" target="_blank"><span class="material-icons-outlined">dashboard</span> Dashboard</a></li>
+                <li class="sidebar-list-item"><a href="rooms.html" target="_blank"><span class="material-icons-outlined">meeting_room</span> Rooms</a></li>
+                <li class="sidebar-list-item"><a href="residents.html" target="_blank"><span class="material-icons-outlined">person</span> Residents</a></li>
+                <li class="sidebar-list-item"><a href="maintenance.html" target="_blank"><span class="material-icons-outlined">build</span> Maintenance</a></li>
+                <li class="sidebar-list-item"><a href="event.html" target="_blank"><span class="material-icons-outlined">event</span> Events</a></li>
+                <li class="sidebar-list-item"><a href="report.html" target="_blank"><span class="material-icons-outlined">poll</span> Reports</a></li>
+                <li class="sidebar-list-item"><a href="settings.html" target="_blank"><span class="material-icons-outlined">settings</span> Settings</a></li>
+            </ul>
+        </aside>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
-  <script src="js/scripts.js"></script>
+        <!-- Main Content -->
+        <main class="main-container">
+            <div class="main-title">
+                <h2>REPORTS</h2>
+                <button class="add-report-btn" id="add-report-btn">Add Report</button>
+            </div>
+
+            <!-- Reports Summary -->
+            <div class="reports-summary">
+                <div class="summary-card">
+                    <h3>Total Reports</h3>
+                    <p id="total-reports">50</p>
+                </div>
+                <div class="summary-card">
+                    <h3>Reports This Month</h3>
+                    <p id="reports-this-month">10</p>
+                </div>
+                <div class="summary-card">
+                    <h3>Pending Reports</h3>
+                    <p id="pending-reports">5</p>
+                </div>
+            </div>
+
+            <!-- Reports Table -->
+            <table class="reports-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Date</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="reports-table-body">
+                    <!-- Rows will be added here dynamically -->
+                </tbody>
+            </table>
+
+            <!-- Add/Edit Report Form -->
+            <div id="report-form-container" class="hidden">
+                <h3 id="form-title">Add New Report</h3>
+                <form id="report-form">
+                    <input type="hidden" id="report-id">
+                    <label for="report-date">Date:</label>
+                    <input type="date" id="report-date" name="date" required>
+
+                    <label for="report-type">Type:</label>
+                    <input type="text" id="report-type" name="type" required>
+
+                    <label for="report-description">Description:</label>
+                    <textarea id="report-description" name="description" required></textarea>
+
+                    <label for="report-status">Status:</label>
+                    <select id="report-status" name="status" required>
+                        <option value="pending">Pending</option>
+                        <option value="resolved">Resolved</option>
+                        <option value="closed">Closed</option>
+                    </select>
+
+                    <button type="submit">Submit</button>
+                    <button type="button" onclick="toggleReportForm()">Cancel</button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
+    <script>
+        let editingRow = null;
+
+        function toggleReportForm() {
+            const formContainer = document.getElementById('report-form-container');
+            formContainer.classList.toggle('hidden');
+        }
+
+        document.getElementById('add-report-btn').addEventListener('click', function() {
+            editingRow = null;
+            document.getElementById('report-form').reset();
+            document.getElementById('form-title').textContent = 'Add New Report';
+            toggleReportForm();
+        });
+
+        document.getElementById('report-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get form values
+            const date = document.getElementById('report-date').value;
+            const type = document.getElementById('report-type').value;
+            const description = document.getElementById('report-description').value;
+            const status = document.getElementById('report-status').value;
+
+            if (editingRow) {
+                // Update existing row
+                editingRow.children[1].textContent = date;
+                editingRow.children[2].textContent = type;
+                editingRow.children[3].textContent = description;
+                editingRow.children[4].textContent = status;
+            } else {
+                // Create a new table row
+                const newRow = document.createElement('tr');
+                newRow.innerHTML = `
+                    <td>${Date.now()}</td>
+                    <td>${date}</td>
+                    <td>${type}</td>
+                    <td>${description}</td>
+                    <td>${status}</td>
+                    <td>
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Delete</button>
+                    </td>
+                `;
+
+                // Add new row to the table body
+                document.getElementById('reports-table-body').appendChild(newRow);
+            }
+
+            // Update summary counts
+            updateSummaryCounts();
+
+            // Hide the form
+            toggleReportForm();
+
+            // Clear the form
+            document.getElementById('report-form').reset();
+            editingRow = null;
+        });
+
+        // Update summary counts
+        function updateSummaryCounts() {
+            const totalReports = document.getElementById('reports-table-body').children.length;
+            document.getElementById('total-reports').textContent = totalReports;
+
+            const reportsThisMonth = Array.from(document.getElementById('reports-table-body').children).filter(row => {
+                const reportDate = new Date(row.children[1].textContent);
+                const today = new Date();
+                return reportDate.getMonth() === today.getMonth() && reportDate.getFullYear() === today.getFullYear();
+            }).length;
+            document.getElementById('reports-this-month').textContent = reportsThisMonth;
+
+            const pendingReports = Array.from(document.getElementById('reports-table-body').children).filter(row => {
+                return row.children[4].textContent === 'Pending';
+            }).length;
+            document.getElementById('pending-reports').textContent = pendingReports;
+        }
+
+        // Event delegation for Edit and Delete buttons
+        document.getElementById('reports-table-body').addEventListener('click', function(event) {
+            if (event.target.classList.contains('edit-btn')) {
+                // Edit button clicked
+                const row = event.target.closest('tr');
+                const date = row.children[1].textContent;
+                const type = row.children[2].textContent;
+                const description = row.children[3].textContent;
+                const status = row.children[4].textContent;
+
+                // Populate the form with existing row data
+                document.getElementById('report-id').value = row.children[0].textContent;
+                document.getElementById('report-date').value = date;
+                document.getElementById('report-type').value = type;
+                document.getElementById('report-description').value = description;
+                document.getElementById('report-status').value = status;
+
+                editingRow = row;
+                document.getElementById('form-title').textContent = 'Edit Report';
+                toggleReportForm();
+            } else if (event.target.classList.contains('delete-btn')) {
+                // Delete button clicked
+                if (confirm('Are you sure you want to delete this report?')) {
+                    const row = event.target.closest('tr');
+                    row.remove();
+                    updateSummaryCounts();
+                }
+            }
+        });
+    </script>
+
+
+
+  
 </body>
 
 </html>
+
