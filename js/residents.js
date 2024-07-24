@@ -1,4 +1,3 @@
-// theme.js
 document.addEventListener('DOMContentLoaded', () => {
     const themeSwitch = document.getElementById('themeSwitch');
     const currentTheme = localStorage.getItem('theme');
