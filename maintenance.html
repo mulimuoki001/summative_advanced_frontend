@@ -11,6 +11,8 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/styles.css">
+
+ 
 </head>
 
 <body>
@@ -119,12 +121,59 @@
     <!-- Main Content -->
     <main class="main-container">
       <div class="main-title">
-        <h2>MENTAINANCE</h2>
+          <h2>Maintenance Requests</h2>
       </div>
-      <div>
-        <h1>Add the content for Mentainance</h1>
+      <div class="content">
+          <div class="filters">
+              <div>
+                  <label for="room-filter">Room:</label>
+                  <input type="text" id="room-filter" placeholder="Enter room number">
+              </div>
+
+              <div>
+                  <label for="status-filter">Status:</label>
+                  <select id="status-filter">
+                      <option value="all">All</option>
+                      <option value="pending">Pending</option>
+                      <option value="ongoing">Ongoing</option>
+                      <option value="completed">Completed</option>
+                  </select>
+              </div>
+
+              <div>
+                  <button onclick="filterRequests()">Filter</button>
+              </div>
+          </div>
+
+          <div class="requests">
+              <table>
+                  <thead>
+                      <tr>
+                          <th>Room</th>
+                          <th>Description</th>
+                          <th>Status</th>
+                          <th>Notes</th>
+                          <th>Actions</th>
+                      </tr>
+                  </thead>
+                  <tbody id="request-list">
+                      <!-- Sample Request -->
+                      <tr>
+                          <td>101</td>
+                          <td>Leaky faucet</td>
+                          <td>Pending</td>
+                          <td><input type="text" placeholder="Add a note"></td>
+                          <td>
+                              <button onclick="updateRequest(this)">Update</button>
+                          </td>
+                      </tr>
+                      <!-- More requests can be dynamically added here -->
+                  </tbody>
+              </table>
+          </div>
       </div>
-    </main>
+  </main>
+  <!-- End Main Content -->
   </div>
 
   <!-- Scripts -->

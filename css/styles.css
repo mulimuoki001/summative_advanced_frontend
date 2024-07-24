@@ -694,6 +694,7 @@ button.delete-btn:hover {
 }
 
 
+<<<<<<< HEAD
   /* Dark mode styles */
   .dark-mode .p-6 {
     background-color: black;
@@ -955,10 +956,68 @@ button:hover {
 
 /* Default Table Styles */
 table {
+=======
+/* ---------- MAINTENANCE PAGE ---------- */
+
+.main-title h2 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.content {
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Filters Section */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filters div {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.filters label {
+  margin-right: 10px;
+}
+
+.filters input,
+.filters select {
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%; 
+}
+
+.filters button {
+  padding: 5px 10px;
+  margin-top: 4px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Requests Table */
+.requests {
+  overflow-x: auto;
+}
+
+.requests table {
+>>>>>>> acc1d3e4fbc6ae1e982aea3be682e33886e5c4a3
   width: 100%;
   border-collapse: collapse;
 }
 
+<<<<<<< HEAD
 th, td {
   padding: 10px;
   border: 1px solid #ddd;
@@ -997,3 +1056,53 @@ body.dark-mode tbody tr:nth-child(odd) {
 body.dark-mode tbody tr:nth-child(even) {
   background: #555;
 }
+=======
+.requests th,
+.requests td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.requests td input {
+  padding: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.requests td button {
+  padding: 5px 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  display: block;
+  margin: 0 auto;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Responsive Design */
+
+/* Small Devices (phones, 600px and down) */
+@media screen and (max-width: 600px) {
+  .filters {
+    flex-direction: column;
+  }
+
+  .filters div {
+    margin-bottom: 10px;
+  }
+
+  .filters button {
+    padding: 12px 10px;
+    margin: 0 auto;
+  }
+
+  .main-title h2{
+    margin: 0 auto;
+  }
+
+}
+
+
+>>>>>>> acc1d3e4fbc6ae1e982aea3be682e33886e5c4a3

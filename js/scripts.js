@@ -571,4 +571,78 @@ let editingRow = null;
 
 
 
+             // MAINTENANCE PAGE 
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Event listener for filtering requests
+      document.getElementById('room-filter').addEventListener('input', filterRequests);
+      document.getElementById('status-filter').addEventListener('change', filterRequests);
+    
+      // Function to filter requests based on room and status
+      function filterRequests() {
+        const roomFilter = document.getElementById('room-filter').value.toLowerCase();
+        const statusFilter = document.getElementById('status-filter').value.toLowerCase();
+        const requestRows = document.querySelectorAll('#request-list tr');
+    
+        requestRows.forEach(row => {
+          const room = row.cells[0].textContent.toLowerCase();
+          const status = row.cells[2].textContent.toLowerCase();
+          const matchesRoom = room.includes(roomFilter);
+          const matchesStatus = statusFilter === 'all' || status === statusFilter;
+          
+          if (matchesRoom && matchesStatus) {
+            row.style.display = '';
+          } else {
+            row.style.display = 'none';
+          }
+        });
+      }
+    
+      // Function to update a maintenance request
+      window.updateRequest = function(button) {
+        const row = button.parentElement.parentElement;
+        const note = row.querySelector('input[type="text"]').value;
+    
+        // Here you can add an AJAX call to save the note to the server
+        console.log(`Note for room ${row.cells[0].textContent}: ${note}`);
+      }
+    
+      // Toggle profile dropdown
+      document.querySelector('.material-icons-outlined.account_circle').addEventListener('click', () => {
+        const profileDropdown = document.getElementById('profile-dropdown');
+        profileDropdown.style.display = profileDropdown.style.display === 'block' ? 'none' : 'block';
+      });
+    
+      // Toggle notification dropdown
+      document.querySelector('.material-icons-outlined.notifications').addEventListener('click', () => {
+        const notificationDropdown = document.getElementById('notification-dropdown');
+        notificationDropdown.style.display = notificationDropdown.style.display === 'block' ? 'none' : 'block';
+      });
+    
+      // Toggle search bar
+      window.toggleSearch = function() {
+        const searchBar = document.getElementById('search-bar');
+        searchBar.style.display = searchBar.style.display === 'none' ? 'block' : 'none';
+      }
+    
+      // Open sidebar
+      window.openSidebar = function() {
+        document.getElementById('sidebar').style.display = 'block';
+      }
+    
+      // Close sidebar
+      window.closeSidebar = function() {
+        document.getElementById('sidebar').style.display = 'none';
+      }
+    
+      // Toggle theme
+      document.getElementById('themeSwitch').addEventListener('change', () => {
+        document.body.classList.toggle('dark-mode');
+      });
+    });
+    
+
+
+
+
 
