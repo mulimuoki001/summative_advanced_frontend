@@ -52,14 +52,37 @@ This dashboard can be run and accessed via any browser. The following are the st
 
    ![Screenshot (25)](https://github.com/user-attachments/assets/9ba71c5e-7cb1-4c77-9294-c1791102cf79)
 
-3. Run the dashboard code. There are many ways of running the code. I will use the Live Server to run the code.
+2. Run the dashboard code. There are many ways of running the code. I will use the Live Server to run the code.
+   By all standards there are no special dependencies require for you to run the code efficiently. 
    
-![Screenshot (26)](https://github.com/user-attachments/assets/73336fc9-1d13-4d30-9468-588c7c7193b6)
+   ![Screenshot (26)](https://github.com/user-attachments/assets/73336fc9-1d13-4d30-9468-588c7c7193b6)
 
 
 
 This will be the landing page that you should see after successfully running the code.
 
-![Screenshot (27)](https://github.com/user-attachments/assets/75d5630e-c6b5-40d0-9bb8-a01c5211106b)
+ ![Screenshot (27)](https://github.com/user-attachments/assets/75d5630e-c6b5-40d0-9bb8-a01c5211106b)
    
+Here is a recorded video showcasing how the dashboard works. Feel free to explore all the features included in the dashboard.
+      
+ https://github.com/user-attachments/assets/22992ad7-7d6b-4640-a31b-132eec7f9c4e
+
+
+The following Engineers made this project a success:
+      1.    Jeannine Uwase 
+            Email: j.uwase1@alustudent.com
+      
+      2.    MUHUMUZA Jean Pierre, 
+            Email:j.muhumuza@alustudent.com
+
+      3.    Ajok Kuech Ajok Deng
+            Email: a.deng2@alustudent.com 
+
+      4.    Nyiriek Mayual Dhak Peat.
+            Email: n.peat@alustudent.com 
+
+      5.    Brian Muli Muoki
+            Email: b.muoki@alustudent.com
+
+      
    
