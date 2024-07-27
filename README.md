@@ -65,6 +65,13 @@ This will be the landing page that you should see after successfully running the
  ![Screenshot (27)](https://github.com/user-attachments/assets/75d5630e-c6b5-40d0-9bb8-a01c5211106b)
    
 Here is a recorded video showcasing how the dashboard works. Feel free to explore all the features included in the dashboard.
+
+
+You can use this link for the video on youtube as well 
+
+
+
+https://www.youtube.com/watch?v=RtYL5ki_5eo
       
  https://github.com/user-attachments/assets/22992ad7-7d6b-4640-a31b-132eec7f9c4e
 
