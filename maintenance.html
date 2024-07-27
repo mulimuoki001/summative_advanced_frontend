@@ -9,8 +9,11 @@
   <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
+  
+
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/styles.css">
+  
 
  
 </head>
@@ -119,67 +122,39 @@
     </aside>
 
     <!-- Main Content -->
-    <main class="main-container">
-      <div class="main-title">
-          <h2>Maintenance Requests</h2>
+  <main class="main-container">
+    <div>
+      <h2>Maintenance Requests</h2>
+      
+      <div class="form-group">
+          <label for="filterRoom">Room:</label>
+          <input type="text" id="filterRoom" class="form-control" placeholder="Enter room number">
       </div>
-      <div class="content">
-          <div class="filters">
-              <div>
-                  <label for="room-filter">Room:</label>
-                  <input type="text" id="room-filter" placeholder="Enter room number">
-              </div>
-
-              <div>
-                  <label for="status-filter">Status:</label>
-                  <select id="status-filter">
-                      <option value="all">All</option>
-                      <option value="pending">Pending</option>
-                      <option value="ongoing">Ongoing</option>
-                      <option value="completed">Completed</option>
-                  </select>
-              </div>
-
-              <div>
-                  <button onclick="filterRequests()">Filter</button>
-              </div>
-          </div>
-
-          <div class="requests">
-              <table>
-                  <thead>
-                      <tr>
-                          <th>Room</th>
-                          <th>Description</th>
-                          <th>Status</th>
-                          <th>Notes</th>
-                          <th>Actions</th>
-                      </tr>
-                  </thead>
-                  <tbody id="request-list">
-                      <!-- Sample Request -->
-                      <tr>
-                          <td>101</td>
-                          <td>Leaky faucet</td>
-                          <td>Pending</td>
-                          <td><input type="text" placeholder="Add a note"></td>
-                          <td>
-                              <button onclick="updateRequest(this)">Update</button>
-                          </td>
-                      </tr>
-                      <!-- More requests can be dynamically added here -->
-                  </tbody>
-              </table>
-          </div>
+      
+      <div class="form-group">
+          <label for="filterStatus">Status:</label>
+          <select id="filterStatus" class="form-control">
+              <option value="">All</option>
+              <option value="pending">Pending</option>
+              <option value="ongoing">Ongoing</option>
+              <option value="completed">Completed</option>
+          </select>
       </div>
-  </main>
-  <!-- End Main Content -->
+      
+      <table class="table-bordered">
+          <thead>
+          </thead>
+          <tbody id="maintenanceRequests">
+              <!-- Maintenance requests will be appended here -->
+          </tbody>
+      </table>
+      
   </div>
-
-  <!-- Scripts -->
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
-  <script src="js/scripts.js"></script>
+</main>
+  
+  
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="js/maintenance.js"></script>
   <script src="js/theme.js"></script>
 </body>
 
