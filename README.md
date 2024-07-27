@@ -47,7 +47,8 @@ A JavaScript library is used for creating dynamic and interactive graphs, which 
 This dashboard can be run and accessed via any browser. The following are the steps to be followed if you are to run the dashboard successfully.
 
 1. Clone the git repo using your preferred code editor. I used Visual Studio Code.
-   git clone https://github.com/mulimuoki001/summative_advanced_frontend.git
+   
+               git clone https://github.com/mulimuoki001/summative_advanced_frontend.git
 
 
    ![Screenshot (25)](https://github.com/user-attachments/assets/9ba71c5e-7cb1-4c77-9294-c1791102cf79)
@@ -69,6 +70,7 @@ Here is a recorded video showcasing how the dashboard works. Feel free to explor
 
 
 The following Engineers made this project a success:
+
       1.    Jeannine Uwase 
             Email: j.uwase1@alustudent.com
       
