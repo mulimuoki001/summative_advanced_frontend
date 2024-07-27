@@ -521,6 +521,10 @@ td {
   margin-right: 10px;
 }
 
+.form-control{
+  margin-bottom: 15px;
+}
+
 #event-form-container button[type="submit"] {
   background-color: #4caf50;
   color: #fff;
@@ -964,17 +968,6 @@ th, td {
   border: 1px solid #ddd;
 }
 
-thead {
-  background: #f8f9fa;
-}
-
-tbody tr:nth-child(odd) {
-  background: #f8f9fa;
-}
-
-tbody tr:nth-child(even) {
-  background: #fff;
-}
 
 /* Dark Mode Styles */
 body.dark-mode table {
