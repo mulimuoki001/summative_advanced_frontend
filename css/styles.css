@@ -394,7 +394,7 @@ button {
   margin-top: 30px;
   margin-left: 80px;
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #078ece;
   color: white;
   border: none;
   border-radius: 5px;
@@ -402,7 +402,7 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #078ece;
 }
 
 /* ---------- MEDIA QUERIES ---------- */
@@ -521,12 +521,12 @@ td {
   margin-right: 10px;
 }
 
-.form-control{
+.form-control {
   margin-bottom: 15px;
 }
 
 #event-form-container button[type="submit"] {
-  background-color: #4caf50;
+  background-color: #078ece;
   color: #fff;
 }
 
@@ -542,7 +542,7 @@ td {
 .add-event-btn {
   padding: 10px 30px;
   border: none;
-  background-color: #4caf50;
+  background-color: #078ece;
   border-radius: 7px;
   color: white;
 }
@@ -564,11 +564,11 @@ button:hover {
 }
 
 button.edit-btn {
-  background-color: #4caf50;
+  background-color: #078ece;
 }
 
 button.edit-btn:hover {
-  background-color: #45a049;
+  background-color: #078ece;
 }
 
 button.delete-btn {
@@ -683,7 +683,7 @@ button.delete-btn:hover {
 }
 
 #report-form-container button[type="submit"] {
-  background-color: #4caf50;
+  background-color: #078ece;
   color: #fff;
 }
 
@@ -694,101 +694,102 @@ button.delete-btn:hover {
 
 .add-report-btn {
   padding: 10px 20px;
-  background-color: #45a049;
+  background-color: #078ece;
 }
 
+/* Dark mode styles for rooms and residents */
+.dark-mode .p-6 {
+  background-color: black;
+  color: white;
+}
 
-  /* Dark mode styles for rooms and residents */
-  .dark-mode .p-6 {
-    background-color: black;
-    color: white;
-  }
+.dark-mode .p-4 {
+  background-color: black;
+  color: white;
+  box-shadow: var(--box-shadow);
+}
 
-  .dark-mode .p-4 {
-    background-color: black;
-    color: white;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2), 0 6px 20px rgba(255, 255, 255, 0.19);
-  }
+.dark-mode table {
+  background-color: black;
+  color: white;
+  border-color: rgba(255, 255, 255, 0.2);
+}
 
-  .dark-mode table {
-    background-color: black;
-    color: white;
-    border-color: rgba(255, 255, 255, 0.2);
-  }
+.dark-mode th,
+.dark-mode td {
+  border-color: rgba(255, 255, 255, 0.2);
+}
 
-  .dark-mode th, .dark-mode td {
-    border-color: rgba(255, 255, 255, 0.2);
-  }
+.dark-mode input[type="text"],
+.dark-mode select {
+  background-color: black;
+  color: white;
+  border-color: rgba(255, 255, 255, 0.2);
+}
 
-  .dark-mode input[type="text"],
-  .dark-mode select {
-    background-color: black;
-    color: white;
-    border-color: rgba(255, 255, 255, 0.2);
-  }
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 34px;
+  height: 20px;
+}
 
-  .switch {
-    position: relative;
-    display: inline-block;
-    width: 34px;
-    height: 20px;
-  }
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
 
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
 
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    transition: .4s;
-    border-radius: 34px;
-  }
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
 
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 14px;
-    width: 14px;
-    left: 3px;
-    bottom: 3px;
-    background-color: white;
-    transition: .4s;
-    border-radius: 50%;
-  }
+input:checked + .slider {
+  background-color: rgb(122, 112, 112);
+}
 
-  input:checked + .slider {
-    background-color: rgb(122, 112, 112);;
-  }
+input:checked + .slider:before {
+  transform: translateX(14px);
+}
 
-  input:checked + .slider:before {
-    transform: translateX(14px);
-  }
+.main-container {
+  transition: background-color 0.4s, color 0.4s;
+}
 
-  .main-container {
-    transition: background-color 0.4s, color 0.4s;
-  }
+input[type="checkbox"]:checked ~ .main-container .p-6 {
+  background-color: black;
+  color: white;
+}
 
-  input[type="checkbox"]:checked ~ .main-container .p-6 {
-    background-color: black;
-    color: white;
-  }
+input[type="checkbox"]:checked ~ .main-container .p-4 {
+  background-color: black;
+  color: white;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2),
+    0 6px 20px rgba(255, 255, 255, 0.19);
+}
 
-  input[type="checkbox"]:checked ~ .main-container .p-4 {
-    background-color: black;
-    color: white;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2), 0 6px 20px rgba(255, 255, 255, 0.19);
-  }
-
-  /* Residents */
-  /* Overview Section Styles */
+/* Residents */
+/* Overview Section Styles */
 .p-6 {
   padding: 1.5rem;
 }
@@ -901,10 +902,6 @@ button {
   transition: background-color 0.3s;
 }
 
-button:hover {
-  background-color: #1e90ff; /* Changes the color to blue on hover */
-}
-
 .flex {
   display: flex;
   justify-content: space-between;
@@ -912,11 +909,7 @@ button:hover {
 }
 
 .bg-green-500 {
-  background-color: #28a745; 
-}
-
-.bg-blue-500:hover {
-  background-color: #1e90ff; 
+  background-color: #078ece;
 }
 
 /* Modal */
@@ -929,8 +922,8 @@ button:hover {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content {
@@ -963,18 +956,19 @@ table {
   border-collapse: collapse;
 }
 
-th, td {
+th,
+td {
   padding: 10px;
   border: 1px solid #ddd;
 }
-
 
 /* Dark Mode Styles */
 body.dark-mode table {
   background-color: #333;
 }
 
-body.dark-mode th, body.dark-mode td {
+body.dark-mode th,
+body.dark-mode td {
   border: 1px solid #444;
   color: #ccc;
 }
@@ -1029,10 +1023,7 @@ body.dark-mode tbody tr:nth-child(even) {
     margin: 0 auto;
   }
 
-  .main-title h2{
+  .main-title h2 {
     margin: 0 auto;
   }
-
 }
-
-
