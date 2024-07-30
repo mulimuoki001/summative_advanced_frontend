@@ -131,7 +131,86 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('event-form').addEventListener('submit', handleEventFormSubmit);
+    });
 
+    let editIndex = -1; // Track which event is being edited
+
+    function showEventForm() {
+      document.getElementById('event-form-container').classList.remove('hidden');
+      document.getElementById('form-title').textContent = 'Add New Event';
+      document.getElementById('event-form').reset();
+      editIndex = -1; // Reset edit index
+    }
+
+    function hideEventForm() {
+      document.getElementById('event-form-container').classList.add('hidden');
+    }
+
+    function handleEventFormSubmit(event) {
+      event.preventDefault(); // Prevent form submission
+
+      const title = document.getElementById('event-title').value;
+      const date = document.getElementById('event-date').value;
+      const description = document.getElementById('event-description').value;
+      const location = document.getElementById('event-location').value;
+
+      const tbody = document.getElementById('event-table-body');
+
+      if (editIndex === -1) {
+        // Add new event
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+                <td>${title}</td>
+                <td>${date}</td>
+                <td>${description}</td>
+                <td>${location}</td>
+                <td>
+                    <button class="edit-btn" onclick="editEvent(this)">Edit</button>
+                    <button class="delete-btn" onclick="deleteEvent(this)">Delete</button>
+                </td>
+            `;
+        tbody.appendChild(newRow);
+      } else {
+        // Update existing event
+        const row = tbody.rows[editIndex];
+        row.cells[0].textContent = title;
+        row.cells[1].textContent = date;
+        row.cells[2].textContent = description;
+        row.cells[3].textContent = location;
+        editIndex = -1; // Reset edit index after update
+      }
+
+      // Clear form fields and hide the form
+      document.getElementById('event-form').reset();
+      hideEventForm();
+    }
+
+    function editEvent(button) {
+      const row = button.parentElement.parentElement;
+      const cells = row.cells;
+
+      document.getElementById('event-title').value = cells[0].textContent;
+      document.getElementById('event-date').value = cells[1].textContent;
+      document.getElementById('event-description').value = cells[2].textContent;
+      document.getElementById('event-location').value = cells[3].textContent;
+
+      document.getElementById('form-title').textContent = 'Edit Event';
+      document.getElementById('event-form').scrollIntoView();
+
+      editIndex = row.rowIndex - 1; // Adjust for table header row
+      showEventForm();
+    }
+
+    function deleteEvent(button) {
+      if (confirm('Are you sure you want to delete this event?')) {
+        const row = button.parentElement.parentElement;
+        row.remove();
+      }
+    }
+  </script>
   <script src="js/scripts.js"></script>
   <script src="js/theme.js"></script>
 </body>

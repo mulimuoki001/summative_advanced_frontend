@@ -460,6 +460,7 @@ button:hover {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
+  background-color: var(--card-bg-color);
 }
 td {
   text-align: center;
@@ -478,7 +479,7 @@ td {
 }
 
 .event-table tr:nth-child(even) {
-  background-color: #f9f9f9;
+  background-color: var(--main-bg-color);
 }
 
 .event-table tr:hover {
@@ -491,7 +492,7 @@ td {
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 5px;
-  background-color: #fff;
+  background-color: var(--card-bg-color);
 }
 
 #event-form-container h3 {
@@ -510,6 +511,8 @@ td {
   margin-bottom: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
+  background-color: var(--notifification-bg-color);
+  color: var(--main-text-color);
 }
 
 #event-form-container button {
@@ -632,17 +635,17 @@ button.delete-btn:hover {
 }
 
 .reports-table th {
-  background-color: var(--card-bg-color);
+  background-color: var(--main-bg-color);
   color: var(--main-text-color);
   font-weight: bold;
 }
 
 .reports-table tr:nth-child(even) {
-  background-color: #f9f9f9;
+  background-color: var(--main-bg-color);
 }
 
 .reports-table tr:hover {
-  background-color: #f1f1f1;
+  background-color: var(--main-bg-color);
 }
 
 /* Add/Edit Report Form Styling */
@@ -651,7 +654,7 @@ button.delete-btn:hover {
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 5px;
-  background-color: #fff;
+  background-color: var(--main-bg-color);
 }
 
 #report-form-container h3 {
@@ -671,6 +674,8 @@ button.delete-btn:hover {
   margin-bottom: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
+  background-color: var(--card-bg-color);
+  color: var(--main-text-color);
 }
 
 #report-form-container button {
@@ -696,7 +701,6 @@ button.delete-btn:hover {
   padding: 10px 20px;
   background-color: #078ece;
 }
-
 /* Dark mode styles for rooms and residents */
 .dark-mode .p-6 {
   background-color: black;

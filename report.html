@@ -191,6 +191,116 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
 
+
+
+  <script>
+    let editingRow = null;
+
+    function toggleReportForm() {
+      const formContainer = document.getElementById('report-form-container');
+      formContainer.classList.toggle('hidden');
+    }
+
+    document.getElementById('add-report-btn').addEventListener('click', function () {
+      editingRow = null;
+      document.getElementById('report-form').reset();
+      document.getElementById('form-title').textContent = 'Add New Report';
+      toggleReportForm();
+    });
+
+    document.getElementById('report-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      // Get form values
+      const date = document.getElementById('report-date').value;
+      const type = document.getElementById('report-type').value;
+      const description = document.getElementById('report-description').value;
+      const status = document.getElementById('report-status').value;
+
+      if (editingRow) {
+        // Update existing row
+        editingRow.children[1].textContent = date;
+        editingRow.children[2].textContent = type;
+        editingRow.children[3].textContent = description;
+        editingRow.children[4].textContent = status;
+      } else {
+        // Create a new table row
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+                <td>${Date.now()}</td>
+                <td>${date}</td>
+                <td>${type}</td>
+                <td>${description}</td>
+                <td>${status}</td>
+                <td>
+                    <button class="edit-btn">Edit</button>
+                    <button class="delete-btn">Delete</button>
+                </td>
+            `;
+
+        // Add new row to the table body
+        document.getElementById('reports-table-body').appendChild(newRow);
+      }
+
+      // Update summary counts
+      updateSummaryCounts();
+
+      // Hide the form
+      toggleReportForm();
+
+      // Clear the form
+      document.getElementById('report-form').reset();
+      editingRow = null;
+    });
+
+    // Update summary counts
+    function updateSummaryCounts() {
+      const totalReports = document.getElementById('reports-table-body').children.length;
+      document.getElementById('total-reports').textContent = totalReports;
+
+      const reportsThisMonth = Array.from(document.getElementById('reports-table-body').children).filter(row => {
+        const reportDate = new Date(row.children[1].textContent);
+        const today = new Date();
+        return reportDate.getMonth() === today.getMonth() && reportDate.getFullYear() === today.getFullYear();
+      }).length;
+      document.getElementById('reports-this-month').textContent = reportsThisMonth;
+
+      const pendingReports = Array.from(document.getElementById('reports-table-body').children).filter(row => {
+        return row.children[4].textContent === 'Pending';
+      }).length;
+      document.getElementById('pending-reports').textContent = pendingReports;
+    }
+
+    // Event delegation for Edit and Delete buttons
+    document.getElementById('reports-table-body').addEventListener('click', function (event) {
+      if (event.target.classList.contains('edit-btn')) {
+        // Edit button clicked
+        const row = event.target.closest('tr');
+        const date = row.children[1].textContent;
+        const type = row.children[2].textContent;
+        const description = row.children[3].textContent;
+        const status = row.children[4].textContent;
+
+        // Populate the form with existing row data
+        document.getElementById('report-id').value = row.children[0].textContent;
+        document.getElementById('report-date').value = date;
+        document.getElementById('report-type').value = type;
+        document.getElementById('report-description').value = description;
+        document.getElementById('report-status').value = status;
+
+        editingRow = row;
+        document.getElementById('form-title').textContent = 'Edit Report';
+        toggleReportForm();
+      } else if (event.target.classList.contains('delete-btn')) {
+        // Delete button clicked
+        if (confirm('Are you sure you want to delete this report?')) {
+          const row = event.target.closest('tr');
+          row.remove();
+          updateSummaryCounts();
+        }
+      }
+    });
+  </script>
   <script src="js/scripts.js"></script>
 
   <script src="js/theme.js"></script>
